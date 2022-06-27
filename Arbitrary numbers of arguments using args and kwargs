@@ -1,0 +1,11 @@
+# Arbitrary numbers of arguments using *args and **kwargs
+
+def gen_command(application, **kwargs):
+    command = application
+
+    for argument in kwargs:
+        command += f' --{argument}={kwargs[argument]}'
+    return command
+
+print(gen_command('notepad.exe'))  # No options
+print(gen_command('Powerpoint.exe', file='pres.ppt', start=True, slide=3))
